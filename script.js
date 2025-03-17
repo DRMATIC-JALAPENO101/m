@@ -1,4 +1,4 @@
-document.getElementById("loginForm").addEventListener("submit", async function(event) {
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
     event.preventDefault(); // Prevent form submission
 
     let username = document.getElementById("username").value;
@@ -13,6 +13,8 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
         let validUser = users.find(user => user.username === username && user.password === password);
 
         if (validUser) {
+            // Store the login in LocalStorage
+            localStorage.setItem("loggedInUser", username);
             alert("Login successful! (But there's no dashboard yet)");
         } else {
             window.location.href = "error.html"; // Redirect to error page
